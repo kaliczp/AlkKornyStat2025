@@ -17,3 +17,8 @@ mtext(names(Mometeo)[3],4,3, at= 600)
 par(new = TRUE)
 plot(Mometeo[,1:2], type = "l", xaxs = "i", col = "red", lwd=2) # Hőmérséklet
 
+hom <- Mometeo[,1:2]
+names(hom) <- c("ev", "hom")
+hom.lm <- lm(hom ~ ev, hom)
+summary(hom.lm)
+abline(hom.lm)
