@@ -22,3 +22,15 @@ names(hom) <- c("ev", "hom")
 hom.lm <- lm(hom ~ ev, hom)
 summary(hom.lm)
 abline(hom.lm)
+
+## Png fájlba
+png("meteo.png", width = 15, height =9, units = "cm", res = 300) # 300 dpi 15*9cm
+par("mar") # mekkora a margó
+par(mar=c(5.1,4.1,0.6,4.1)) # mekkora a margó
+plot(Mometeo[,c(1,3)], type = "h", xaxs = "i", col="blue", ylim=c(3000,0),yaxs = "i", xaxt="n", yaxt="n", ylab = "", xlab ="") # Csapadék
+axis(4, at=seq(0,1200,300), cex = 0.5)
+mtext(names(Mometeo)[3],4,3, at= 1500)
+par(new = TRUE)
+plot(Mometeo[,1:2], type = "l", xaxs = "i", col = "red", lwd=2) # Hőmérséklet
+abline(hom.lm)
+dev.off()
