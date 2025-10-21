@@ -4,3 +4,5 @@ NAronszennyviz <- as.data.frame(read_excel("NAronszennyviz.xlsx")) # teszt beolv
 
 SzVTerület <- NAronszennyviz[27:45,] # Terület kiválsztása
 names(SzVTerület) <- as.vector(t(NAronszennyviz[26,])) # Fejléc
+
+plot(SzVTerület[,1], SzVTerület[,3])
