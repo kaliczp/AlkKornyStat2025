@@ -66,3 +66,14 @@ for(komponens in c(3:6,8,15)) {
     axis(1, at = seq(0.7, by = 1.2, length.out = nrow(SzVTerületmod)), labels = SzVTerületmod[,2])
     dev.off()
 }
+
+## Nullás
+komponens <- 11 # 14
+png(paste0(Fejléchez[komponens], "nominal.png"),
+        height = 10, width = 17, units = "cm", res = 300, pointsize = 8)
+par(mar=c(10,4.1,0.3,0.3), las = 2)
+barplot(as.numeric(SzVTerületmod[, komponens]), col = Oszlopszinek,
+        ylim = c(0,2))
+axis(2, at = as.numeric(Standard[, komponens]), tck = 1, lab = "", col = "#e9a3c9", lwd = 3)
+axis(1, at = seq(0.7, by = 1.2, length.out = nrow(SzVTerületmod)), labels = SzVTerületmod[,2])
+dev.off()
